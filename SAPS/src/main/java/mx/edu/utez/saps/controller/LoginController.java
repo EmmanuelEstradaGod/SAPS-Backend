@@ -41,7 +41,7 @@ public class LoginController {
 	@PostMapping("/login")
 	public ResponseEntity<JwtDTO> responseEntity(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
-			return new ResponseEntity("Datos incompletos",HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("Datos incompletos", HttpStatus.BAD_REQUEST);
 		}
 		try {
 			Authentication authentication = authenticationManager.authenticate(
@@ -50,7 +50,8 @@ public class LoginController {
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			String token = jwtProvider.generateToken(authentication);
 			UserDetails details = (UserDetails) authentication.getPrincipal();
-			JwtDTO jwtDTO = new JwtDTO(token,details.getUsername(), details.getAuthorities(),);
+			JwtDTO jwtDTO = new JwtDTO(token, details.getUsername(), details.getAuthorities());
+			
 			return new ResponseEntity(jwtDTO,HttpStatus.OK);
 		}catch (BadCredentialsException e) {
 			return new ResponseEntity("Usuario y/o contraseña incorrectos",HttpStatus.BAD_REQUEST);
