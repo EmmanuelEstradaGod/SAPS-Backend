@@ -14,6 +14,7 @@ import mx.edu.utez.saps.entity.UsuarioEntity;
 @Service
 @Transactional
 public class DetalleUsuarioService implements UserDetailsService{
+	
 	@Autowired
 	private UsuarioService usuarioService;
 
