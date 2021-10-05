@@ -29,7 +29,7 @@ public class JwtProvider {
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(new Date().getTime() + expiration * 1000))
 				.signWith(SignatureAlgorithm.HS512, passwordSecret).compact();
-		
+		System.out.println(token);
 		return token;
 	}
 	

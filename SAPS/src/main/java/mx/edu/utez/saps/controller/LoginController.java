@@ -1,6 +1,5 @@
 package mx.edu.utez.saps.controller;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.utez.saps.dto.JwtDTO;
 import mx.edu.utez.saps.dto.LoginUser;
+import mx.edu.utez.saps.entity.UsuarioEntity;
+import mx.edu.utez.saps.enums.Role;
 import mx.edu.utez.saps.jwt.JwtProvider;
 import mx.edu.utez.saps.service.UsuarioService;
 
@@ -39,14 +40,17 @@ public class LoginController {
 	private UsuarioService usuarioService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<JwtDTO> responseEntity(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult){
+	public ResponseEntity<JwtDTO> responseEntity(@RequestBody LoginUser loginUser, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
 			return new ResponseEntity("Datos incompletos", HttpStatus.BAD_REQUEST);
 		}
 		try {
+			System.out.println("Entra");
+			System.out.println(loginUser.toString());
 			Authentication authentication = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginUser.getNickname(), loginUser.getPassword())
 					);
+			
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			String token = jwtProvider.generateToken(authentication);
 			UserDetails details = (UserDetails) authentication.getPrincipal();
@@ -56,5 +60,10 @@ public class LoginController {
 		}catch (BadCredentialsException e) {
 			return new ResponseEntity("Usuario y/o contraseña incorrectos",HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@PostMapping("/register/solicitante")
+	public ResponseEntity<?> saveUser(@RequestBody UsuarioEntity user){		
+		return ResponseEntity.ok(usuarioService.saveUsuario(user, Role.ROLE_SOLICITANTE));
 	}
 }

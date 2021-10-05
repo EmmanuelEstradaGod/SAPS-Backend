@@ -75,5 +75,11 @@ public class UsuarioEntity {
 	public void setTipoUsuario(TipoUsuarioEntity tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
+	@Override
+	public String toString() {
+		return "UsuarioEntity [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
+				+ ", apellidoMaterno=" + apellidoMaterno + ", correo=" + correo + ", password=" + password + ", sexo="
+				+ sexo + ", role=" + role + ", tipoUsuario=" + tipoUsuario + "]";
+	}
 	
 }
