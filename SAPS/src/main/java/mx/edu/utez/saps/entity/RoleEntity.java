@@ -1,6 +1,7 @@
 package mx.edu.utez.saps.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,7 @@ public class RoleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRole;
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Role role;
 	//---------------
 	public int getIdRole() {

@@ -1,6 +1,8 @@
 package mx.edu.utez.saps.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class TipoUsuarioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTipoUsuario;
+	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipoUsuario;
 	@OneToOne
 	private SolicitudEstudianteEntity solicitudEstudiante;

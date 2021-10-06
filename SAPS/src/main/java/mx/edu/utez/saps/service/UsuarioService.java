@@ -1,5 +1,6 @@
 package mx.edu.utez.saps.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -30,12 +31,14 @@ public class UsuarioService {
 		if (user == null) {
 			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 			RoleEntity role = roleRepository.findByRole(autoridad);
-			usuario.setRole(role);
+			List<RoleEntity> roles = new ArrayList<RoleEntity>();
+			roles.add(role);
+			usuario.setRoles(roles);
+			
 			return usuarioRepository.existsById(usuarioRepository.save(usuario).getIdUsuario());
 
 		}else {
-			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-			return usuarioRepository.existsById(usuarioRepository.save(usuario).getIdUsuario());
+			return false;
 		}
 		
 	}

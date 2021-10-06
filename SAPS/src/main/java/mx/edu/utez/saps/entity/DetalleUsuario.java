@@ -1,6 +1,8 @@
 package mx.edu.utez.saps.entity;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,19 +13,24 @@ public class DetalleUsuario implements UserDetails{
 	private String correo;
 	private String password;
 	
-	private GrantedAuthority authority;
+	private Collection<? extends GrantedAuthority> authorities;
 	
 	
-	public DetalleUsuario(String correo, String password, GrantedAuthority authority) {
+	
+
+	public DetalleUsuario(String correo, String password, Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.correo = correo;
 		this.password = password;
-		this.authority = authority;
+		this.authorities = authorities;
 	}
 
 	public static DetalleUsuario construir(UsuarioEntity usuario) {
-		GrantedAuthority authority = new SimpleGrantedAuthority(usuario.getRole().getRole().name());
-		return new DetalleUsuario(usuario.getCorreo(), usuario.getPassword(), authority);
+		List<GrantedAuthority> authorities = usuario.getRoles()
+				.stream()
+				.map(rol -> new SimpleGrantedAuthority(rol.getRole().name()))
+				.collect(Collectors.toList());
+		return new DetalleUsuario(usuario.getCorreo(), usuario.getPassword(), authorities);
 	}
 	
 	//-------------------------------------------
@@ -31,43 +38,43 @@ public class DetalleUsuario implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return correo;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

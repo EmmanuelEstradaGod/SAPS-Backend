@@ -1,9 +1,12 @@
 package mx.edu.utez.saps.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 @Entity
 public class UsuarioEntity {
@@ -16,8 +19,8 @@ public class UsuarioEntity {
 	private String correo;
 	private String password;
 	private String sexo;
-	@ManyToOne
-	private RoleEntity role;
+	@ManyToMany
+	private List<RoleEntity> roles;
 	@ManyToOne
 	private TipoUsuarioEntity tipoUsuario;
 	//---------------
@@ -63,23 +66,18 @@ public class UsuarioEntity {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public RoleEntity getRole() {
-		return role;
-	}
-	public void setRole(RoleEntity role) {
-		this.role = role;
-	}
 	public TipoUsuarioEntity getTipoUsuario() {
 		return tipoUsuario;
 	}
 	public void setTipoUsuario(TipoUsuarioEntity tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-	@Override
-	public String toString() {
-		return "UsuarioEntity [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
-				+ ", apellidoMaterno=" + apellidoMaterno + ", correo=" + correo + ", password=" + password + ", sexo="
-				+ sexo + ", role=" + role + ", tipoUsuario=" + tipoUsuario + "]";
+	public List<RoleEntity> getRoles() {
+		return roles;
 	}
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
+	}
+	
 	
 }
