@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +35,8 @@ public class SintomaController {
 		return sintomaService.saveSintoma(sintoma);
 	}
 	
-	@DeleteMapping("/delete")
-	public boolean deleteSintoma(@RequestBody int idSintoma) {
+	@DeleteMapping("/delete/{idSintoma}")
+	public boolean deleteSintoma(@PathVariable("idSintoma") int idSintoma) {
 		return sintomaService.deleteSintoma(idSintoma);
 	}
 	
@@ -44,8 +45,8 @@ public class SintomaController {
 		return sintomaService.getSintomas();
 	}
 	
-	@GetMapping("/getOne")
-	public SintomaEntity getSintoma(@RequestBody int idSintoma){
+	@GetMapping("/getOne/{idSintoma}")
+	public SintomaEntity getSintoma(@PathVariable("idSintoma") int idSintoma){
 		return sintomaService.getSintoma(idSintoma);
 	}
 

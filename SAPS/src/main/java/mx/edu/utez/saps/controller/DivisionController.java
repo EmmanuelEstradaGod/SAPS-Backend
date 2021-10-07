@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,8 +28,8 @@ public class DivisionController {
 		return divisionService.saveDivision(division);
 	}
 	
-	@DeleteMapping("/delete")
-	public boolean deleteDivision(@RequestBody int idDivision) {
+	@DeleteMapping("/delete/{idDivision}")
+	public boolean deleteDivision(@PathVariable("idDivision") int idDivision) {
 		return divisionService.deleteDivision(idDivision);
 	}
 
@@ -37,8 +38,8 @@ public class DivisionController {
 		return divisionService.getDivisiones();
 	}
 	
-	@GetMapping("/getOne")
-	public DivisionEntity getDivision(@RequestBody int idDivision) {
+	@GetMapping("/getOne/{idDivision}")
+	public DivisionEntity getDivision(@PathVariable("idDivision") int idDivision) {
 		return divisionService.getDivision(idDivision);
 	}
 	

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,8 @@ public class NivelController {
 		return nivelService.saveNivel(nivel);
 	}
 	
-	@DeleteMapping("/delete")
-	public boolean deleteNivel(@RequestBody int idNivel) {
+	@DeleteMapping("/delete/{idNivel}")
+	public boolean deleteNivel(@PathVariable("idNivel") int idNivel) {
 		return nivelService.deleteNivel(idNivel);
 	}
 	
@@ -38,8 +39,8 @@ public class NivelController {
 		return nivelService.getNiveles();
 	}
 	
-	@GetMapping("/getOne")
-	public NivelEntity getNivel(@RequestBody int idNivel){
+	@GetMapping("/getOne/{idNivel}")
+	public NivelEntity getNivel(@PathVariable("idNivel") int idNivel){
 		return nivelService.getNivel(idNivel);
 	}
 	

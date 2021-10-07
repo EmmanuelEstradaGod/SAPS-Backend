@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,8 @@ public class CarreraController {
 		return carreraService.saveCarrera(carrera);
 	}
 	
-	@DeleteMapping("/delete")
-	public boolean deleteCarrera(@RequestBody int idCarrera) {
+	@DeleteMapping("/delete/{idCarrera}")
+	public boolean deleteCarrera(@PathVariable("idCarrera") int idCarrera) {
 		return carreraService.deleteCarrera(idCarrera);
 	}
 	
@@ -38,8 +39,8 @@ public class CarreraController {
 		return carreraService.getCarreras();
 	}
 	
-	@GetMapping("/getOne")
-	public CarreraEntity getCarrera(@RequestBody int idCarrera){
+	@GetMapping("/getOne/{idCarrera}")
+	public CarreraEntity getCarrera(@PathVariable("idCarrera") int idCarrera){
 		return carreraService.getCarrera(idCarrera);
 	}
 	

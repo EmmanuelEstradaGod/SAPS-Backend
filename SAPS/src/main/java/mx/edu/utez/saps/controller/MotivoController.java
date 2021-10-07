@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +35,8 @@ public class MotivoController {
 		return motivoService.saveMotivo(motivo);
 	}
 	
-	@DeleteMapping("/delete")
-	public boolean deleteMotivo(@RequestBody int idMotivo) {
+	@DeleteMapping("/delete/{idMotivo}")
+	public boolean deleteMotivo(@PathVariable("idMotivo") int idMotivo) {
 		return motivoService.deleteMotivo(idMotivo);
 	}
 	
@@ -44,8 +45,8 @@ public class MotivoController {
 		return motivoService.getMotivos();
 	}
 	
-	@GetMapping("/getOne")
-	public MotivoEntity getMotivo(@RequestBody int idMotivo){
+	@GetMapping("/getOne/{idMotivo}")
+	public MotivoEntity getMotivo(@PathVariable("idMotivo") int idMotivo){
 		return motivoService.getMotivo(idMotivo);
 	}
 }
