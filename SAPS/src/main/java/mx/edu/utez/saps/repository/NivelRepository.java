@@ -8,5 +8,5 @@ import mx.edu.utez.saps.entity.NivelEntity;
 
 @Repository
 public interface NivelRepository extends JpaRepository<NivelEntity, Integer> {
-	NivelRepository findByNivel(int idNivel);
+	NivelEntity findByIdNivel(int idNivel);
 }

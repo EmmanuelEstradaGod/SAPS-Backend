@@ -31,6 +31,6 @@ public class NivelService {
 	}
 	
 	public NivelEntity getNivel(int idNivel) {
-		return (NivelEntity) nivelRepository.findByNivel(idNivel);
+		return (NivelEntity) nivelRepository.findByIdNivel(idNivel);
 	}
 }
