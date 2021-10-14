@@ -31,6 +31,6 @@ public class DepartamentoService {
 	}
 	
 	public DepartamentoEntity getDepartamento(int idDepartamento) {
-		return (DepartamentoEntity) departamentoRepository.findByDepartamento(idDepartamento);
+		return (DepartamentoEntity) departamentoRepository.findByIdDepartamento(idDepartamento);
 	}
 }

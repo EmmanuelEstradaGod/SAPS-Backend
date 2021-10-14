@@ -7,5 +7,5 @@ import mx.edu.utez.saps.entity.DepartamentoEntity;
 
 @Repository
 public interface DepartamentoRepository extends JpaRepository<DepartamentoEntity, Integer>{
-	DepartamentoRepository findByDepartamento(int idDepartamento);
+	DepartamentoEntity findByIdDepartamento(int idDepartamento);
 }
