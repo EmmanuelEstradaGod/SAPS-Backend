@@ -17,8 +17,8 @@ public class SolicitudEstudianteService {
 	@Autowired
 	private SolicitudEstudianteRepository solicitudEstudianteRepository;
 	
-	public boolean saveSolicitudEstudiante(SolicitudEstudianteEntity solicitudEstudiante) {
-		return solicitudEstudianteRepository.existsById(solicitudEstudianteRepository.save(solicitudEstudiante).getIdSolicitudEstudiante());
+	public SolicitudEstudianteEntity saveSolicitudEstudiante(SolicitudEstudianteEntity solicitudEstudiante) {
+		return solicitudEstudianteRepository.save(solicitudEstudiante);
 	}
 	
 	public boolean deleteSolicitudEstudiante(int idSolicitudEstudiante) {

@@ -9,4 +9,5 @@ import mx.edu.utez.saps.entity.SolicitudEstudianteEntity;
 public interface SolicitudEstudianteRepository extends JpaRepository<SolicitudEstudianteEntity, Integer>{
 
 	SolicitudEstudianteEntity findByIdSolicitudEstudiante(int idSolicitudEstudiante);
+	SolicitudEstudianteEntity findByMatricula(String matricula);
 }

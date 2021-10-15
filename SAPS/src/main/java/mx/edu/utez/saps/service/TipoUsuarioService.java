@@ -25,8 +25,8 @@ public class TipoUsuarioService {
 		return tipoUsuarioRepository.findByIdTipoUsuario(idTipoUsuario);
 	}
 	
-	public boolean saveTipoUsuario(TipoUsuarioEntity tipoUsuario) {
-		return tipoUsuarioRepository.existsById(tipoUsuarioRepository.save(tipoUsuario).getIdTipoUsuario());
+	public TipoUsuarioEntity saveTipoUsuario(TipoUsuarioEntity tipoUsuario) {
+		return tipoUsuarioRepository.save(tipoUsuario);
 	}
 	
 	public boolean deleteTipoUsuario(int idTipoUsuario) {

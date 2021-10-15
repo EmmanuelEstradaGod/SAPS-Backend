@@ -36,25 +36,25 @@ public class TipoUsuarioController {
 	}
 	
 	@PostMapping("/save/estudiante")
-	public boolean saveTipoUsuarioEstudiante(@RequestBody TipoUsuarioEntity tipoUsuario) {
+	public TipoUsuarioEntity saveTipoUsuarioEstudiante(@RequestBody TipoUsuarioEntity tipoUsuario) {
 		tipoUsuario.setTipoUsuario(TipoUsuario.Estudiante);
 		return tipoUsuarioService.saveTipoUsuario(tipoUsuario);
 	}
 	
 	@PostMapping("/save/docente")
-	public boolean saveTipoUsuarioDocente(@RequestBody TipoUsuarioEntity tipoUsuario) {
+	public TipoUsuarioEntity saveTipoUsuarioDocente(@RequestBody TipoUsuarioEntity tipoUsuario) {
 		tipoUsuario.setTipoUsuario(TipoUsuario.Docente);
 		return tipoUsuarioService.saveTipoUsuario(tipoUsuario);
 	}
 	
 	@PostMapping("/save/administrativo")
-	public boolean saveTipoUsuarioAdministrativo(@RequestBody TipoUsuarioEntity tipoUsuario) {
+	public TipoUsuarioEntity saveTipoUsuarioAdministrativo(@RequestBody TipoUsuarioEntity tipoUsuario) {
 		tipoUsuario.setTipoUsuario(TipoUsuario.Administrativo);
 		return tipoUsuarioService.saveTipoUsuario(tipoUsuario);
 	}
 	
 	@PutMapping("/update")
-	public boolean updateTipoUsuario(@RequestBody TipoUsuarioEntity tipoUsuario) {
+	public TipoUsuarioEntity updateTipoUsuario(@RequestBody TipoUsuarioEntity tipoUsuario) {
 		return tipoUsuarioService.saveTipoUsuario(tipoUsuario);
 	}
 	

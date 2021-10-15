@@ -26,7 +26,7 @@ public class UsuarioService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	public boolean saveUsuario(UsuarioEntity usuario, Role  autoridad) {
+	public int saveUsuario(UsuarioEntity usuario, Role  autoridad) {
 		UsuarioEntity user = usuarioRepository.findByCorreo(usuario.getCorreo());
 		if (user == null) {
 			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
@@ -34,11 +34,11 @@ public class UsuarioService {
 			List<RoleEntity> roles = new ArrayList<RoleEntity>();
 			roles.add(role);
 			usuario.setRoles(roles);
-			
-			return usuarioRepository.existsById(usuarioRepository.save(usuario).getIdUsuario());
+			usuarioRepository.save(usuario);
+			return usuarioRepository.findByCorreo(usuario.getCorreo()).getIdUsuario();
 
 		}else {
-			return false;
+			return 0;
 		}
 		
 	}
@@ -58,6 +58,10 @@ public class UsuarioService {
 	
 	public UsuarioEntity getUsuarioByCorreo(String correo) {
 		return usuarioRepository.findByCorreo(correo);
+	}
+	
+	public boolean updateUsuario(UsuarioEntity usuario) {
+		return usuarioRepository.existsById(usuarioRepository.save(usuario).getIdUsuario());
 	}
 
 }
