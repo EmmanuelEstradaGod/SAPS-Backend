@@ -12,7 +12,7 @@ public class SolicitanteEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitante;
-	@OneToOne
+	@ManyToOne
 	private UsuarioEntity usuario;
 	private int edad;
 	private String domicilio;
