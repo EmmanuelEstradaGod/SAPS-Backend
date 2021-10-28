@@ -26,6 +26,7 @@ public class CarreraController {
 	
 	@PostMapping("/save")
 	public boolean saveCarrera(@RequestBody CarreraEntity carrera) {
+		carrera.setStatus(true);
 		return carreraService.saveCarrera(carrera);
 	}
 	

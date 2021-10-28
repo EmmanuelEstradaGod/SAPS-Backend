@@ -27,6 +27,7 @@ public class DepartamentoController {
 	
 	@PostMapping("/save")
 	public boolean saveDepartamento(@RequestBody DepartamentoEntity departamento) {
+		departamento.setStatus(true);
 		return departamentoService.saveDepartamento(departamento);
 	}
 	

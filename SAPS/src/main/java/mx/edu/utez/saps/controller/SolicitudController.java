@@ -36,6 +36,7 @@ public class SolicitudController {
 	
 	@PostMapping("/save")
 	public boolean saveSolicitud(@RequestBody SolicitudEntity solicitud) {
+		solicitud.setStatus(true);
 		return solicitudService.saveSolicitud(solicitud);
 	}
 	

@@ -27,6 +27,7 @@ public class SintomaController {
 	
 	@PostMapping("/save")
 	public boolean saveSintoma(@RequestBody SintomaEntity sintoma) {
+		sintoma.setStatus(true);
 		return sintomaService.saveSintoma(sintoma);
 	}
 	

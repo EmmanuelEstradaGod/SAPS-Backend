@@ -25,6 +25,7 @@ public class DivisionController {
 	
 	@PostMapping("/save")
 	public boolean saveDivision(@RequestBody DivisionEntity division) {
+		division.setStatus(true);
 		return divisionService.saveDivision(division);
 	}
 	

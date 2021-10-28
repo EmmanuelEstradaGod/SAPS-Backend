@@ -27,6 +27,7 @@ public class MotivoController {
 	
 	@PostMapping("/save")
 	public boolean saveMotivo(@RequestBody MotivoEntity motivo) {
+		motivo.setStatus(true);
 		return motivoService.saveMotivo(motivo);
 	}
 	

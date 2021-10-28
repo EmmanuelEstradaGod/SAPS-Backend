@@ -26,6 +26,7 @@ public class NivelController {
 	
 	@PostMapping("/save")
 	public boolean saveNivel(@RequestBody NivelEntity nivel) {
+		nivel.setStatus(true);
 		return nivelService.saveNivel(nivel);
 	}
 	

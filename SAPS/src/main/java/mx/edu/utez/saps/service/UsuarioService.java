@@ -29,6 +29,7 @@ public class UsuarioService {
 	public int saveUsuario(UsuarioEntity usuario, Role  autoridad) {
 		UsuarioEntity user = usuarioRepository.findByCorreo(usuario.getCorreo());
 		if (user == null) {
+			usuario.setStatus(true);
 			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 			RoleEntity role = roleRepository.findByRole(autoridad);
 			List<RoleEntity> roles = new ArrayList<RoleEntity>();

@@ -36,6 +36,7 @@ public class SolicitanteController {
 	
 	@PostMapping("/save")
 	public boolean saveSolicitante(@RequestBody SolicitanteEntity solicitante) {
+		solicitante.setStatus(true);
 		return solicitanteService.saveSolicitante(solicitante);
 	}
 	
