@@ -23,7 +23,15 @@ public class UsuarioEntity {
 	private List<RoleEntity> roles;
 	@ManyToOne
 	private TipoUsuarioEntity tipoUsuario;
+	private boolean status;
+	
 	//---------------
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public int getIdUsuario() {
 		return idUsuario;
 	}

@@ -22,12 +22,14 @@ public class SolicitudEstudianteService {
 	}
 	
 	public boolean deleteSolicitudEstudiante(int idSolicitudEstudiante) {
-		solicitudEstudianteRepository.deleteById(idSolicitudEstudiante);
-		return !solicitudEstudianteRepository.existsById(idSolicitudEstudiante);
+		SolicitudEstudianteEntity solicitudEstudiante = solicitudEstudianteRepository.findByIdSolicitudEstudiante(idSolicitudEstudiante);
+		solicitudEstudiante.setStatus(false);
+		solicitudEstudianteRepository.save(solicitudEstudiante);
+		return solicitudEstudianteRepository.existsById(idSolicitudEstudiante);
 	}
 	
 	public List<SolicitudEstudianteEntity> getSolicitudesEstudiante(){
-		return solicitudEstudianteRepository.findAll();
+		return solicitudEstudianteRepository.findAllByStatus(true);
 	}
 	
 	public SolicitudEstudianteEntity getSolicitudEstudiante(int idSolicitudEstudiante) {

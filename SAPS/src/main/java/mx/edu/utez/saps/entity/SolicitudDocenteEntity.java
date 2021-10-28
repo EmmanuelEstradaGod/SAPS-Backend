@@ -13,9 +13,17 @@ public class SolicitudDocenteEntity {
 	private int idSolicitudDocente;
 	@ManyToOne
 	private DivisionEntity division;
+	private boolean status;
 	//---------------
+	
 	public int getIdSolicitudDocente() {
 		return idSolicitudDocente;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitudDocente(int idSolicitudDocente) {
 		this.idSolicitudDocente = idSolicitudDocente;

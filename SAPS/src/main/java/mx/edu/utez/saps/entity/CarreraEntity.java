@@ -14,9 +14,17 @@ public class CarreraEntity {
 	private String carrera;
 	@ManyToOne
 	private DivisionEntity division;
+	private boolean status;
 	//---------------
+	
 	public int getIdCarrera() {
 		return idCarrera;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdCarrera(int idCarrera) {
 		this.idCarrera = idCarrera;

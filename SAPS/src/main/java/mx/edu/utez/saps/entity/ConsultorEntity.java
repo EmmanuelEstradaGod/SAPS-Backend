@@ -16,9 +16,17 @@ public class ConsultorEntity {
 	private String cedula;
 	private String puesto;
 	private String correoPersonal;
+	private boolean status;
 	//---------------
+	
 	public int getIdConsultor() {
 		return idConsultor;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdConsultor(int idConsultor) {
 		this.idConsultor = idConsultor;

@@ -22,12 +22,14 @@ public class CarreraService {
 	}
 	
 	public boolean deleteCarrera(int idCarrera) {
-		carreraRepository.deleteById(idCarrera);
-		return !carreraRepository.existsById(idCarrera);
+		CarreraEntity carrera = carreraRepository.findByIdCarrera(idCarrera);
+		carrera.setStatus(false);
+		carreraRepository.save(carrera);
+		return carreraRepository.existsById(idCarrera);
 	}
 	
 	public List<CarreraEntity> getCarreras(){
-		return carreraRepository.findAll();
+		return carreraRepository.findAllByStatus(true);
 	}
 	
 	public CarreraEntity getCarrera(int idCarrera) {

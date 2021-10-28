@@ -11,9 +11,17 @@ public class NivelEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idNivel;
 	private String nivel;
+	private boolean status;
 	// ---------------
+	
 	public int getIdNivel() {
 		return idNivel;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdNivel(int idNivel) {
 		this.idNivel = idNivel;

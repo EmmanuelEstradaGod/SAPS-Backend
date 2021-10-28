@@ -23,12 +23,14 @@ public class SintomaService {
 	}
 	
 	public boolean deleteSintoma(int idSintoma) {
-		sintomaRepository.deleteById(idSintoma);
-		return !sintomaRepository.existsById(idSintoma);
+		SintomaEntity sintoma = sintomaRepository.findByIdSintoma(idSintoma);
+		sintoma.setStatus(false);
+		sintomaRepository.save(sintoma);
+		return sintomaRepository.existsById(idSintoma);
 	}
 	
 	public List<SintomaEntity> getSintomas(){
-		return sintomaRepository.findAll();
+		return sintomaRepository.findAllByStatus(true);
 	}
 	
 	public SintomaEntity getSintoma(int idSintoma) {

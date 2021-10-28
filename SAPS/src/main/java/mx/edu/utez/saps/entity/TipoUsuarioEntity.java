@@ -23,9 +23,17 @@ public class TipoUsuarioEntity {
 	private SolicitudDocenteEntity solicitudDocente;
 	@OneToOne
 	private SolicitudAdministrativoEntity solicitudAdministrativo;
+	private boolean status;
 	//---------------
+	
 	public int getIdTipoUsuario() {
 		return idTipoUsuario;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdTipoUsuario(int idTipoUsuario) {
 		this.idTipoUsuario = idTipoUsuario;

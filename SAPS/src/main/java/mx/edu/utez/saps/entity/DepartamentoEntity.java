@@ -11,9 +11,17 @@ public class DepartamentoEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDepartamento;
 	private String departamento;
+	private boolean status;
 	//---------------
+	
 	public int getIdDepartamento() {
 		return idDepartamento;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdDepartamento(int idDepartamento) {
 		this.idDepartamento = idDepartamento;

@@ -23,9 +23,17 @@ public class SolicitudEntity {
 	private List<MotivoEntity> motivos;
 	@ManyToMany
 	private List<SintomaEntity> sintomas;
+	private boolean status;
 	//---------------
+	
 	public int getIdSolicitud() {
 		return idSolicitud;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitud(int idSolicitud) {
 		this.idSolicitud = idSolicitud;

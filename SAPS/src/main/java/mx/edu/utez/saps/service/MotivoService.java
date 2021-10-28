@@ -23,12 +23,14 @@ public class MotivoService {
 	}
 	
 	public boolean deleteMotivo(int idMotivo) {
-		motivoRepository.deleteById(idMotivo);
-		return !motivoRepository.existsById(idMotivo);
+		MotivoEntity motivo = motivoRepository.findByIdMotivo(idMotivo);
+		motivo.setStatus(false);
+		motivoRepository.save(motivo);
+		return motivoRepository.existsById(idMotivo);
 	}
 	
 	public List<MotivoEntity> getMotivos(){
-		return motivoRepository.findAll();
+		return motivoRepository.findAllByStatus(true);
 	}
 	
 	public MotivoEntity getMotivo(int idMotivo) {

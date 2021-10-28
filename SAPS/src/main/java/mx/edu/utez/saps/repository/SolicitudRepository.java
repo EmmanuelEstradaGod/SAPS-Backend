@@ -11,4 +11,5 @@ import mx.edu.utez.saps.entity.SolicitudEntity;
 public interface SolicitudRepository extends JpaRepository<SolicitudEntity, Integer>{
 	SolicitudEntity findByIdSolicitud(int idSolicitud);
 	List<SolicitudEntity> findAllBySolicitante_Usuario_IdUsuario(int idUsuario);
+	List<SolicitudEntity> findAllByStatus(boolean status);
 }

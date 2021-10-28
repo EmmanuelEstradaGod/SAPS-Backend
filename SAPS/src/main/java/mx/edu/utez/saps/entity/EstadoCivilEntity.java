@@ -11,9 +11,17 @@ public class EstadoCivilEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEstadoCivil;
 	private String estadoCivil;
+	private boolean status;
 	//---------------
+	
 	public int getIdEstadoCivil() {
 		return idEstadoCivil;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdEstadoCivil(int idEstadoCivil) {
 		this.idEstadoCivil = idEstadoCivil;

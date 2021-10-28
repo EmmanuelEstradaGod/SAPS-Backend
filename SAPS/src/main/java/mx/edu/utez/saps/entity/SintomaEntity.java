@@ -11,9 +11,17 @@ public class SintomaEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSintoma;
 	private String sintoma;
+	private boolean status;
 	//---------------
+	
 	public int getIdSintoma() {
 		return idSintoma;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSintoma(int idSintoma) {
 		this.idSintoma = idSintoma;

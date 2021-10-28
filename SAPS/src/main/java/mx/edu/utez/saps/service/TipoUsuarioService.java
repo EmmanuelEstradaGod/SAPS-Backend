@@ -18,7 +18,7 @@ public class TipoUsuarioService {
 	private TipoUsuarioRepository tipoUsuarioRepository;
 	
 	public List<TipoUsuarioEntity> getTiposUsuario(){
-		return tipoUsuarioRepository.findAll();
+		return tipoUsuarioRepository.findAllByStatus(true);
 	}
 	
 	public TipoUsuarioEntity getTipoUsuario(int idTipoUsuario) {
@@ -30,7 +30,9 @@ public class TipoUsuarioService {
 	}
 	
 	public boolean deleteTipoUsuario(int idTipoUsuario) {
-		tipoUsuarioRepository.deleteById(idTipoUsuario);
-		return !tipoUsuarioRepository.existsById(idTipoUsuario);
+		TipoUsuarioEntity tipoUsuario = tipoUsuarioRepository.findByIdTipoUsuario(idTipoUsuario);
+		tipoUsuario.setStatus(false);
+		tipoUsuarioRepository.save(tipoUsuario);
+		return tipoUsuarioRepository.existsById(idTipoUsuario);
 	}
 }

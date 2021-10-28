@@ -11,9 +11,17 @@ public class MotivoEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMotivo;
 	private String motivo;
+	private boolean status;
 	//---------------
+	
 	public int getIdMotivo() {
 		return idMotivo;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdMotivo(int idMotivo) {
 		this.idMotivo = idMotivo;

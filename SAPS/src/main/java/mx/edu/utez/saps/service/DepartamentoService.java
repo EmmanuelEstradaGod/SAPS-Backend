@@ -22,12 +22,14 @@ public class DepartamentoService {
 	}
 	
 	public boolean deleteDepartamento(int idDepartamento) {
-		departamentoRepository.deleteById(idDepartamento);
-		return !departamentoRepository.existsById(idDepartamento);
+		DepartamentoEntity departamento = departamentoRepository.findByIdDepartamento(idDepartamento);
+		departamento.setStatus(false);
+		departamentoRepository.save(departamento);
+		return departamentoRepository.existsById(idDepartamento);
 	}
 	
 	public List<DepartamentoEntity> getDepartamentos(){
-		return departamentoRepository.findAll();
+		return departamentoRepository.findAllByStatus(true);
 	}
 	
 	public DepartamentoEntity getDepartamento(int idDepartamento) {

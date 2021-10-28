@@ -13,9 +13,17 @@ public class SolicitudAdministrativoEntity {
 	private int idSolicitudAdministrativo;
 	@ManyToOne
 	private DepartamentoEntity departamento;
+	private boolean status;
 	//---------------
+	
 	public int getIdSolicitudAdministrativo() {
 		return idSolicitudAdministrativo;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitudAdministrativo(int idSolicitudAdministrativo) {
 		this.idSolicitudAdministrativo = idSolicitudAdministrativo;

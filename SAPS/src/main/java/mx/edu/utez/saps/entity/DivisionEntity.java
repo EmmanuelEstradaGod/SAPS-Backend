@@ -11,9 +11,17 @@ public class DivisionEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDivision;
 	private String division;
+	private boolean status;
 	//---------------
+	
 	public int getIdDivision() {
 		return idDivision;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdDivision(int idDivision) {
 		this.idDivision = idDivision;

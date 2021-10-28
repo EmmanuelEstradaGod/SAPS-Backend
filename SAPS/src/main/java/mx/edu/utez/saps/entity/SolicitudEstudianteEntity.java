@@ -19,9 +19,17 @@ public class SolicitudEstudianteEntity {
 	private String grado;
 	private String grupo;
 	private String tutor;
+	private boolean status;
 	//---------------
+	
 	public int getIdSolicitudEstudiante() {
 		return idSolicitudEstudiante;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitudEstudiante(int idSolicitudEstudiante) {
 		this.idSolicitudEstudiante = idSolicitudEstudiante;

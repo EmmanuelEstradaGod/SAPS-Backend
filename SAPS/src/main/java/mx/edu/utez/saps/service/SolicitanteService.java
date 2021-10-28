@@ -18,7 +18,7 @@ public class SolicitanteService {
 	private SolicitanteRepository solicitanteRepository;
 	
 	public List<SolicitanteEntity> getSolicitantes(){
-		return solicitanteRepository.findAll();
+		return solicitanteRepository.findAllByStatus(true);
 	}
 	
 	public SolicitanteEntity getSolicitante(int idSolicitante) {
@@ -30,7 +30,9 @@ public class SolicitanteService {
 	}
 	
 	public boolean deleteSolicitante(int idSolicitante) {
-		solicitanteRepository.deleteById(idSolicitante);
-		return !solicitanteRepository.existsById(idSolicitante);
+		SolicitanteEntity solicitante = solicitanteRepository.findByIdSolicitante(idSolicitante);
+		solicitante.setStatus(false);
+		solicitanteRepository.save(solicitante);
+		return solicitanteRepository.existsById(idSolicitante);
 	}
 }

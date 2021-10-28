@@ -22,12 +22,14 @@ public class NivelService {
 	}
 	
 	public boolean deleteNivel(int idNivel) {
-		nivelRepository.deleteById(idNivel);
-		return !nivelRepository.existsById(idNivel);
+		NivelEntity nivel = nivelRepository.findByIdNivel(idNivel);
+		nivel.setStatus(false);
+		nivelRepository.save(nivel);
+		return nivelRepository.existsById(idNivel);
 	}
 	
 	public List<NivelEntity> getNiveles(){
-		return nivelRepository.findAll();
+		return nivelRepository.findAllByStatus(true);
 	}
 	
 	public NivelEntity getNivel(int idNivel) {

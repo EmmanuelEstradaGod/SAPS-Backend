@@ -13,9 +13,17 @@ public class BitacoraSolicitudEntity {
 	private int idBitacoraSolicitud;
 	@OneToOne
 	private SolicitudEntity solicitud;
+	private boolean status;
 	//---------------
+	
 	public int getIdBitacoraSolicitud() {
 		return idBitacoraSolicitud;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdBitacoraSolicitud(int idBitacoraSolicitud) {
 		this.idBitacoraSolicitud = idBitacoraSolicitud;

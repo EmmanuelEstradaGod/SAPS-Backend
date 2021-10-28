@@ -22,9 +22,17 @@ public class SolicitanteEntity {
 	private String nombreApoyo;
 	private String parentezcoApoyo;
 	private String personasVivienda;
+	private boolean status;
 	//---------------
+	
 	public int getIdSolicitante() {
 		return idSolicitante;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitante(int idSolicitante) {
 		this.idSolicitante = idSolicitante;

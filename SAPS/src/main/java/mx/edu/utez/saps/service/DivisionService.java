@@ -21,12 +21,14 @@ public class DivisionService {
 	}
 	
 	public boolean deleteDivision(int idDivision) {
-		divisionRepository.deleteById(idDivision);
-		return !divisionRepository.existsById(idDivision);
+		DivisionEntity division = divisionRepository.findByIdDivision(idDivision);
+		division.setStatus(false);
+		divisionRepository.save(division);
+		return divisionRepository.existsById(idDivision);
 	}
 	
 	public List<DivisionEntity> getDivisiones() {
-		return divisionRepository.findAll();
+		return divisionRepository.findAllByStatus(true);
 	}
 	
 	public DivisionEntity getDivision(int idDivision) {

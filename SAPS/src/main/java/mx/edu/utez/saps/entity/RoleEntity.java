@@ -16,9 +16,17 @@ public class RoleEntity {
 	private int idRole;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+	private boolean status;
 	//---------------
+	
 	public int getIdRole() {
 		return idRole;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdRole(int idRole) {
 		this.idRole = idRole;
