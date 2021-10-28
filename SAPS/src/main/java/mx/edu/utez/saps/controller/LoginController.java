@@ -66,4 +66,14 @@ public class LoginController {
 	public ResponseEntity<?> saveUser(@RequestBody UsuarioEntity user){		
 		return ResponseEntity.ok(usuarioService.saveUsuario(user, Role.ROLE_SOLICITANTE));
 	}
+	
+	@PostMapping("/register/consultor")
+	public ResponseEntity<?> saveConsultor(@RequestBody UsuarioEntity user){		
+		return ResponseEntity.ok(usuarioService.saveUsuario(user, Role.ROLE_CONSULTOR));
+	}
+	
+	@PostMapping("/register/admin")
+	public ResponseEntity<?> saveAdmin(@RequestBody UsuarioEntity user){		
+		return ResponseEntity.ok(usuarioService.saveUsuario(user, Role.ROLE_ADMIN));
+	}
 }

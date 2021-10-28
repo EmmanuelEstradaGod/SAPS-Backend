@@ -58,6 +58,7 @@ public class TipoUsuarioController {
 	
 	@PutMapping("/update")
 	public TipoUsuarioEntity updateTipoUsuario(@RequestBody TipoUsuarioEntity tipoUsuario) {
+		tipoUsuario.setStatus(true);
 		return tipoUsuarioService.saveTipoUsuario(tipoUsuario);
 	}
 	

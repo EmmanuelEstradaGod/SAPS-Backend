@@ -47,6 +47,7 @@ public class NivelController {
 	
 	@PutMapping("/update")
 	public boolean updateNivel(@RequestBody NivelEntity nivel) {
+		nivel.setStatus(true);
 		return nivelService.saveNivel(nivel);
 	}
 }

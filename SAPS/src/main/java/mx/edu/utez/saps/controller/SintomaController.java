@@ -33,6 +33,7 @@ public class SintomaController {
 	
 	@PutMapping("/update")
 	public boolean updateSintoma(@RequestBody SintomaEntity sintoma) {
+		sintoma.setStatus(true);
 		return sintomaService.saveSintoma(sintoma);
 	}
 	

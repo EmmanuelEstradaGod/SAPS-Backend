@@ -33,6 +33,7 @@ public class MotivoController {
 	
 	@PutMapping("/update")
 	public boolean updateMotivo(@RequestBody MotivoEntity motivo) {
+		motivo.setStatus(true);
 		return motivoService.saveMotivo(motivo);
 	}
 	

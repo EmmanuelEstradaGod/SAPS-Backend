@@ -47,6 +47,7 @@ public class SolicitudController {
 	
 	@PutMapping("/update")
 	public boolean updateSolicitud(@RequestBody SolicitudEntity solicitud) {
+		solicitud.setStatus(true);
 		return solicitudService.saveSolicitud(solicitud);
 	}
 	

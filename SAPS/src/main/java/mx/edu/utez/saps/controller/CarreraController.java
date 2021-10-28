@@ -47,6 +47,7 @@ public class CarreraController {
 	
 	@PutMapping("/update")
 	public boolean updateCarrera(@RequestBody CarreraEntity carrera) {
+		carrera.setStatus(true);
 		return carreraService.saveCarrera(carrera);
 	}
 }

@@ -46,6 +46,7 @@ public class DivisionController {
 	
 	@PutMapping("/update")
 	public boolean updateDivision(@RequestBody DivisionEntity division) {
+		division.setStatus(true);
 		return divisionService.saveDivision(division);
 	}
 }

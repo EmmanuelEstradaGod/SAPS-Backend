@@ -48,6 +48,7 @@ public class DepartamentoController {
 	
 	@PutMapping("/update")
 	public boolean updateDepartamento(@RequestBody DepartamentoEntity departamento) {
+		departamento.setStatus(true);
 		return departamentoService.saveDepartamento(departamento);
 	}
 }

@@ -11,5 +11,4 @@ import mx.edu.utez.saps.enums.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<RoleEntity, Integer>{
 	RoleEntity findByRole(Role role);
-	List<RoleEntity> findAllByStatus(boolean status);
 }
