@@ -61,6 +61,7 @@ public class SolicitudDocenteController {
 	
 	@PutMapping("/update")
 	public boolean updateSolicitudDocente(@RequestBody SolicitudDocenteEntity solicitudDocente) {
+		solicitudDocente.setStatus(true);
 		solicitudDocenteService.saveSolicitudDocente(solicitudDocente);
 		return true;
 	}

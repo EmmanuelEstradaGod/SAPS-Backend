@@ -61,6 +61,7 @@ public class SolicitudAdmnistrativoController {
 	
 	@PutMapping("/update")
 	public boolean updateSolicitudAdmnistrativo(@RequestBody SolicitudAdministrativoEntity solicitudAdministrativo) {
+		solicitudAdministrativo.setStatus(true);
 		solicitudAdministrativoService.saveSolicitudAdmnistrativo(solicitudAdministrativo);
 		return true;
 	}
