@@ -26,6 +26,7 @@ public class ConsultorController {
 	
 	@PostMapping("/save")
 	public boolean saveConsultor(@RequestBody ConsultorEntity consultor) {
+		consultor.setStatus(true);
 		return consultorService.saveConsultor(consultor);
 	}
 	
