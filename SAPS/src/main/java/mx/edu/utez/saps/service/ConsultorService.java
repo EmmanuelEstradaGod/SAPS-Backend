@@ -27,7 +27,7 @@ public class ConsultorService {
 	}
 	
 	public List<ConsultorEntity> getConsultores() {
-		return consultorRepository.findAll();
+		return consultorRepository.findAllByStatus(true);
 	}
 	
 	public ConsultorEntity getConsultor(int idConsultor) {
