@@ -32,6 +32,7 @@ public class ConsultorController {
 	
 	@PutMapping("/update")
 	public boolean updateConsultor(@RequestBody ConsultorEntity consultor) {
+		consultor.setStatus(true);
 		return consultorService.saveConsultor(consultor);
 	}
 	
