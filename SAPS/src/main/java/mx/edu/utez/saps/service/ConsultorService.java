@@ -22,8 +22,10 @@ public class ConsultorService {
 	}
 	
 	public boolean deleteConsultor(int idConsultor) {
-		consultorRepository.deleteById(idConsultor);
-		return !consultorRepository.existsById(idConsultor);
+		ConsultorEntity consultor = consultorRepository.findByIdConsultor(idConsultor);
+		consultor.setStatus(false);
+		consultorRepository.save(consultor);
+		return consultorRepository.existsById(idConsultor);
 	}
 	
 	public List<ConsultorEntity> getConsultores() {
