@@ -45,6 +45,7 @@ public class SolicitudDocenteController {
 	
 	@PostMapping("/save/{idUsuario}")
 	public boolean saveSolicitudDocente(@RequestBody SolicitudDocenteEntity solicitudDocente, @PathVariable("idUsuario") int idUsuario) {
+		solicitudDocente.setStatus(true);
 		SolicitudDocenteEntity solicitud = solicitudDocenteService.saveSolicitudDocente(solicitudDocente);
 		
 		TipoUsuarioEntity tipoUsuario = new TipoUsuarioEntity();
