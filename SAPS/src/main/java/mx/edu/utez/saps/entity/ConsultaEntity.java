@@ -16,17 +16,10 @@ public class ConsultaEntity {
 	@OneToOne
 	private SolicitudEntity solicitud;
 	private String estado;
-	private boolean status;
 	//---------------
 	
 	public int getIdConsulta() {
 		return idConsulta;
-	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 	public void setIdConsulta(int idConsulta) {
 		this.idConsulta = idConsulta;
