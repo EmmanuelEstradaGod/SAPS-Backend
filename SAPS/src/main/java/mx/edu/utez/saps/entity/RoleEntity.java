@@ -11,6 +11,15 @@ import mx.edu.utez.saps.enums.Role;
 
 @Entity
 public class RoleEntity {
+	
+	public RoleEntity() {
+		super();
+	}
+	public RoleEntity(Role role) {
+		super();
+		this.role = role;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRole;
