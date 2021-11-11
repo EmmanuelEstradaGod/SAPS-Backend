@@ -11,4 +11,5 @@ import mx.edu.utez.saps.entity.SolicitanteEntity;
 public interface SolicitanteRepository extends JpaRepository<SolicitanteEntity, Integer>{
 	SolicitanteEntity findByIdSolicitante(int idSolicitante);
 	List<SolicitanteEntity> findAllByStatus(boolean status);
+	List<SolicitanteEntity> findAllByUsuario_IdUsuario(int idUsuario);
 }
