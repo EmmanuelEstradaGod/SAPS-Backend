@@ -51,7 +51,7 @@ public class SolicitanteController {
 		return solicitanteService.saveSolicitante(solicitante);
 	}
 	
-	@GetMapping("/getAll/{idUsuario}")
+	@GetMapping("/getAll/usuario/{idUsuario}")
 	public List<SolicitanteEntity> getSolicitantesByUsuario(@PathVariable("idUsuario") int idUsuario){
 		return solicitanteService.getSolicitantesByUsuario(idUsuario);
 	}
