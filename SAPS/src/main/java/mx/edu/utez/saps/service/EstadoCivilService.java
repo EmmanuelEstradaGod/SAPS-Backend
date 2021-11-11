@@ -22,8 +22,10 @@ public class EstadoCivilService {
 	}
 	
 	public boolean deleteEstadoCivil(int idEstadoCivil) {
-		estadoCivilRepository.deleteById(idEstadoCivil);
-		return !estadoCivilRepository.existsById(idEstadoCivil);
+		EstadoCivilEntity estadoCivil = estadoCivilRepository.findByIdEstadoCivil(idEstadoCivil);
+		estadoCivil.setStatus(false);
+		estadoCivilRepository.save(estadoCivil);
+		return estadoCivilRepository.existsById(idEstadoCivil);
 	}
 	
 	public List<EstadoCivilEntity> getEstadosCiviles() {
