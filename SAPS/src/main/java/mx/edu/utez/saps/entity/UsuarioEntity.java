@@ -18,10 +18,9 @@ public class UsuarioEntity {
 	}
 	
 
-	public UsuarioEntity(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String correo,
+	public UsuarioEntity(String nombre, String apellidoPaterno, String apellidoMaterno, String correo,
 			String password, String sexo, TipoUsuarioEntity tipoUsuario, boolean status) {
 		super();
-		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;

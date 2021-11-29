@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class SintomaEntity {
+	
+	
+	public SintomaEntity() {
+		super();
+	}
+	public SintomaEntity(String sintoma, boolean status) {
+		super();
+		this.sintoma = sintoma;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSintoma;

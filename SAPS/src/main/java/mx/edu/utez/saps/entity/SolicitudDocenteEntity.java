@@ -8,6 +8,16 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class SolicitudDocenteEntity {
+	
+	
+	public SolicitudDocenteEntity() {
+		super();
+	}
+	public SolicitudDocenteEntity(DivisionEntity division, boolean status) {
+		super();
+		this.division = division;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitudDocente;
