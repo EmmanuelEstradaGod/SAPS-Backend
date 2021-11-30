@@ -8,6 +8,16 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class SolicitudAdministrativoEntity {
+	
+	
+	public SolicitudAdministrativoEntity() {
+		super();
+	}
+	public SolicitudAdministrativoEntity(DepartamentoEntity departamento, boolean status) {
+		super();
+		this.departamento = departamento;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitudAdministrativo;

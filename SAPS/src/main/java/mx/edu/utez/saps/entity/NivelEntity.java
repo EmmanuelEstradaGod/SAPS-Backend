@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class NivelEntity {
+	
+	
+	public NivelEntity() {
+		super();
+	}
+	public NivelEntity(String nivel, boolean status) {
+		super();
+		this.nivel = nivel;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idNivel;

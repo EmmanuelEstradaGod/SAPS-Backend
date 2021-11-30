@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class EstadoCivilEntity {
+	
+	
+	public EstadoCivilEntity() {
+		super();
+	}
+	public EstadoCivilEntity(String estadoCivil, boolean status) {
+		super();
+		this.estadoCivil = estadoCivil;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEstadoCivil;

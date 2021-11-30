@@ -8,6 +8,22 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class SolicitudEstudianteEntity {
+	
+	
+	public SolicitudEstudianteEntity() {
+		super();
+	}
+	public SolicitudEstudianteEntity(String matricula, NivelEntity nivelEstudio, CarreraEntity carrera, String grado,
+			String grupo, String tutor, boolean status) {
+		super();
+		this.matricula = matricula;
+		this.nivelEstudio = nivelEstudio;
+		this.carrera = carrera;
+		this.grado = grado;
+		this.grupo = grupo;
+		this.tutor = tutor;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitudEstudiante;

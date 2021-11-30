@@ -8,6 +8,17 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class CarreraEntity {
+	
+	
+	public CarreraEntity() {
+		super();
+	}
+	public CarreraEntity(String carrera, DivisionEntity division, boolean status) {
+		super();
+		this.carrera = carrera;
+		this.division = division;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCarrera;

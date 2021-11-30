@@ -12,6 +12,21 @@ import mx.edu.utez.saps.enums.TipoUsuario;
 
 @Entity
 public class TipoUsuarioEntity {
+	
+	
+	public TipoUsuarioEntity() {
+		super();
+	}
+	public TipoUsuarioEntity(TipoUsuario tipoUsuario, SolicitudEstudianteEntity solicitudEstudiante,
+			SolicitudDocenteEntity solicitudDocente, SolicitudAdministrativoEntity solicitudAdministrativo,
+			boolean status) {
+		super();
+		this.tipoUsuario = tipoUsuario;
+		this.solicitudEstudiante = solicitudEstudiante;
+		this.solicitudDocente = solicitudDocente;
+		this.solicitudAdministrativo = solicitudAdministrativo;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTipoUsuario;

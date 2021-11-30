@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class DepartamentoEntity {
+	
+	
+	public DepartamentoEntity() {
+		super();
+	}
+	public DepartamentoEntity(String departamento, boolean status) {
+		super();
+		this.departamento = departamento;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDepartamento;

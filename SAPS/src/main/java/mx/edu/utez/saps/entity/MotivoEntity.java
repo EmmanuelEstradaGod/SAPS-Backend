@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class MotivoEntity {
+	
+	
+	public MotivoEntity() {
+		super();
+	}
+	public MotivoEntity(String motivo, boolean status) {
+		super();
+		this.motivo = motivo;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMotivo;

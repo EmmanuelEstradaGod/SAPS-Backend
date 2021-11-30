@@ -10,6 +10,28 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 @Entity
 public class UsuarioEntity {
+	
+	
+	
+	public UsuarioEntity() {
+		super();
+	}
+	
+
+	public UsuarioEntity(String nombre, String apellidoPaterno, String apellidoMaterno, String correo,
+			String password, String sexo, TipoUsuarioEntity tipoUsuario, boolean status) {
+		super();
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.correo = correo;
+		this.password = password;
+		this.sexo = sexo;
+		this.tipoUsuario = tipoUsuario;
+		this.status = status;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;

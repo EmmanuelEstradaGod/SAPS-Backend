@@ -26,11 +26,13 @@ public class EstadoCivilController {
 	
 	@PostMapping("/save")
 	public boolean saveEstadoCivil(@RequestBody EstadoCivilEntity estadoCivil) {
+		estadoCivil.setStatus(true);
 		return estadoCivilService.saveEstadoCivil(estadoCivil);
 	}
 	
 	@PutMapping("/update")
 	public boolean updateEstadoCivil(@RequestBody EstadoCivilEntity estadoCivil) {
+		estadoCivil.setStatus(true);
 		return estadoCivilService.saveEstadoCivil(estadoCivil);
 	}
 	

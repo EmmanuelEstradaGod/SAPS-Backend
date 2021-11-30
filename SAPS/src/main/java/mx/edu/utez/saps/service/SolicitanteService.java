@@ -35,4 +35,8 @@ public class SolicitanteService {
 		solicitanteRepository.save(solicitante);
 		return solicitanteRepository.existsById(idSolicitante);
 	}
+	
+	public List<SolicitanteEntity> getSolicitantesByUsuario(int idUsuario){
+		return solicitanteRepository.findAllByUsuario_IdUsuario(idUsuario);
+	}
 }

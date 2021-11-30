@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class DivisionEntity {
+	
+	
+	public DivisionEntity() {
+		super();
+	}
+	public DivisionEntity(String division, boolean status) {
+		super();
+		this.division = division;
+		this.status = status;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDivision;

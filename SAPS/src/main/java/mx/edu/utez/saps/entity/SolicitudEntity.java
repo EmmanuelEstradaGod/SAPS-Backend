@@ -23,6 +23,8 @@ public class SolicitudEntity {
 	private List<MotivoEntity> motivos;
 	@ManyToMany
 	private List<SintomaEntity> sintomas;
+	@ManyToOne
+	private ConsultorEntity consultor;
 	private boolean status;
 	//---------------
 	
