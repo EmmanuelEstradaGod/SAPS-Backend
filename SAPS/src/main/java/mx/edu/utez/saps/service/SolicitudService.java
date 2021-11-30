@@ -25,8 +25,8 @@ public class SolicitudService {
 		return solicitudRepository.findByIdSolicitud(idSolicitud);
 	}
 	
-	public boolean saveSolicitud(SolicitudEntity solicitud) {
-		return solicitudRepository.existsById(solicitudRepository.save(solicitud).getIdSolicitud());
+	public SolicitudEntity saveSolicitud(SolicitudEntity solicitud) {
+		return solicitudRepository.save(solicitud);
 	}
 	
 	public boolean deleteSolicitud(int idSolicitud) {

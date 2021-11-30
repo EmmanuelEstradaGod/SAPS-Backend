@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.edu.utez.saps.entity.ConsultaEntity;
+import mx.edu.utez.saps.entity.ProrrogaConsulta;
+import mx.edu.utez.saps.entity.SolicitudEntity;
 import mx.edu.utez.saps.service.ConsultaService;
+import mx.edu.utez.saps.service.SolicitudService;
 
 @RestController
 @CrossOrigin
@@ -22,6 +25,8 @@ public class ConsultaController {
 	
 	@Autowired
 	private ConsultaService consultaService;
+	@Autowired
+	private SolicitudService solicitudService;
 	
 	@GetMapping("/getAll")
 	public List<ConsultaEntity> getConsultas(){
@@ -46,6 +51,28 @@ public class ConsultaController {
 	@GetMapping("/getAll/usuario/{idUsuario}")
 	public List<ConsultaEntity> getConsultasByUsuario(@PathVariable("idUsuario") int idUsuario){
 		return consultaService.getConsultasByUsuario(idUsuario);
+	}
+	
+	@PostMapping("/save/prorroga")
+	public boolean saveProrroga(@RequestBody ProrrogaConsulta prorrogaConsulta) {
+		ConsultaEntity consulta = consultaService.getConsulta(prorrogaConsulta.getIdConsulta());
+		ConsultaEntity nuevaConsulta = new ConsultaEntity();
+		nuevaConsulta.setConsultor(consulta.getConsultor());
+		nuevaConsulta.setEstado(consulta.getEstado());
+		
+		SolicitudEntity solicitud = solicitudService.getSolicitud(consulta.getSolicitud().getIdSolicitud());
+		SolicitudEntity nuevaSolicitud = new SolicitudEntity();
+		nuevaSolicitud.setFecha(prorrogaConsulta.getFecha());
+		nuevaSolicitud.setSolicitante(solicitud.getSolicitante());
+		nuevaSolicitud.setEstado("Prorroga");
+		nuevaSolicitud.setMotivos(solicitud.getMotivos());
+		nuevaSolicitud.setSintomas(solicitud.getSintomas());
+		nuevaSolicitud.setConsultor(solicitud.getConsultor());
+		nuevaSolicitud.setStatus(solicitud.isStatus());
+		
+		nuevaConsulta.setSolicitud(solicitudService.saveSolicitud(nuevaSolicitud));
+		consultaService.saveConsulta(nuevaConsulta);
+		return true;
 	}
 
 }

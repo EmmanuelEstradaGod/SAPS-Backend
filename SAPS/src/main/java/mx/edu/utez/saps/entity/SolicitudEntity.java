@@ -70,5 +70,11 @@ public class SolicitudEntity {
 	public void setSintomas(List<SintomaEntity> sintomas) {
 		this.sintomas = sintomas;
 	}
+	public ConsultorEntity getConsultor() {
+		return consultor;
+	}
+	public void setConsultor(ConsultorEntity consultor) {
+		this.consultor = consultor;
+	}
 	
 }

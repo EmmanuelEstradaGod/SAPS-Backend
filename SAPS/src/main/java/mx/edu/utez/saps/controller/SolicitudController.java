@@ -37,7 +37,8 @@ public class SolicitudController {
 	@PostMapping("/save")
 	public boolean saveSolicitud(@RequestBody SolicitudEntity solicitud) {
 		solicitud.setStatus(true);
-		return solicitudService.saveSolicitud(solicitud);
+		solicitudService.saveSolicitud(solicitud);
+		return true;
 	}
 	
 	@DeleteMapping("/delete/{idSolicitud}")
@@ -48,7 +49,8 @@ public class SolicitudController {
 	@PutMapping("/update")
 	public boolean updateSolicitud(@RequestBody SolicitudEntity solicitud) {
 		solicitud.setStatus(true);
-		return solicitudService.saveSolicitud(solicitud);
+		solicitudService.saveSolicitud(solicitud);
+		return true;
 	}
 	
 	@GetMapping("getAll/usuario/{idUsuario}")
