@@ -20,9 +20,8 @@ public class EmailController {
 	
 	@PostMapping("/send")
 	public void send(@RequestBody Mail mail) {
-		String content = "Se ha establecido el siguiente enlace con la llamada para la sesión de"
-				+ " Apoyo Psicopedagógico:\n"
-				+ "\t Enlace: "+ mail.getLinkCall();
+		String content = "Se ha establecido el siguiente enlace con la llamada para la sesión de Apoyo Psicopedagógico\n"
+				+ "Enlace: "+ mail.getLinkCall();
 		
 		emailService.sendMail(mail.getTo(), content);
 	}

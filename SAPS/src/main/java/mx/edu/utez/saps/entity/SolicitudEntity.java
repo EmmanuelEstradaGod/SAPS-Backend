@@ -1,8 +1,10 @@
 package mx.edu.utez.saps.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,12 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class SolicitudEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitud;
-	private Date fecha;
+	private LocalDateTime fecha;
 	@ManyToOne
 	private SolicitanteEntity solicitante;
 	private String estado;
@@ -26,24 +30,18 @@ public class SolicitudEntity {
 	@ManyToOne
 	private ConsultorEntity consultor;
 	private boolean status;
-	//---------------
 	
+	//---------------
 	public int getIdSolicitud() {
 		return idSolicitud;
-	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
 	}
 	public void setIdSolicitud(int idSolicitud) {
 		this.idSolicitud = idSolicitud;
 	}
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 	public SolicitanteEntity getSolicitante() {
@@ -70,5 +68,16 @@ public class SolicitudEntity {
 	public void setSintomas(List<SintomaEntity> sintomas) {
 		this.sintomas = sintomas;
 	}
-	
+	public ConsultorEntity getConsultor() {
+		return consultor;
+	}
+	public void setConsultor(ConsultorEntity consultor) {
+		this.consultor = consultor;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }
