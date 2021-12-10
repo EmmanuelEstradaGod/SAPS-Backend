@@ -4,6 +4,7 @@ public class Mail {
 
 	private String to;
 	private String linkCall;
+	private int idConsulta;
 	
 	
 	//----------------------
@@ -20,4 +21,11 @@ public class Mail {
 	public void setLinkCall(String linkCall) {
 		this.linkCall = linkCall;
 	}
+	public int getIdConsulta() {
+		return idConsulta;
+	}
+	public void setIdConsulta(int idConsulta) {
+		this.idConsulta = idConsulta;
+	}
+	
 }
