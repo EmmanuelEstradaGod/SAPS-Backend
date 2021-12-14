@@ -17,11 +17,11 @@ public class BitacoraSolicitudService {
 	@Autowired
 	private BitacoraSolicitudRepository bitacoraSolicitudRepository;
 	
-	public List<BitacoraSolicitudEntity> getAll(){
+	public List<BitacoraSolicitudEntity> getBitacoras(){
 		return bitacoraSolicitudRepository.findAll();
 	}
 	
-	public BitacoraSolicitudEntity getOne(int idBitacoraSolicitud) {
+	public BitacoraSolicitudEntity getBitacora(int idBitacoraSolicitud) {
 		return bitacoraSolicitudRepository.findByIdBitacoraSolicitud(idBitacoraSolicitud);
 	}
 	
@@ -32,5 +32,9 @@ public class BitacoraSolicitudService {
 	public boolean delete(int idBitacoraSolicitud) {
 		bitacoraSolicitudRepository.deleteById(idBitacoraSolicitud);
 		return !bitacoraSolicitudRepository.existsById(idBitacoraSolicitud);
+	}
+
+	public List<BitacoraSolicitudEntity> getBitacorasByUsuario(int idUsuario) {
+		return bitacoraSolicitudRepository.findAllBySolicitud_Solicitante_Usuario_IdUsuario(idUsuario);
 	}
 }
