@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.edu.utez.saps.entity.BitacoraSolicitudEntity;
 import mx.edu.utez.saps.entity.SolicitudEntity;
-import mx.edu.utez.saps.service.BitacoraSolicitudService;
 import mx.edu.utez.saps.service.SolicitudService;
 
 @RestController
@@ -25,8 +23,6 @@ public class SolicitudController {
 
 	@Autowired
 	private SolicitudService solicitudService;
-	@Autowired
-	private BitacoraSolicitudService bitacoraSolicitudService;
 	
 	@GetMapping("/getAll")
 	public List<SolicitudEntity> getSolicitudes(){
@@ -41,12 +37,8 @@ public class SolicitudController {
 	@PostMapping("/save")
 	public boolean saveSolicitud(@RequestBody SolicitudEntity solicitud) {
 		solicitud.setStatus(true);
-		
-		
-		BitacoraSolicitudEntity bitacoraSolicitud = new BitacoraSolicitudEntity();
-		bitacoraSolicitud.setStatus(true);
-		bitacoraSolicitud.setSolicitud(solicitudService.saveSolicitud(solicitud));
-		return bitacoraSolicitudService.save(bitacoraSolicitud);
+		solicitudService.saveSolicitud(solicitud);
+		return true;
 	}
 	
 	@DeleteMapping("/delete/{idSolicitud}")
