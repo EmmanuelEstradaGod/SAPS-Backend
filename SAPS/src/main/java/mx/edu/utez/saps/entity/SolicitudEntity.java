@@ -77,13 +77,6 @@ public class SolicitudEntity {
 	public void setConsultor(ConsultorEntity consultor) {
 		this.consultor = consultor;
 	}
-<<<<<<< HEAD
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 	
 	@Override
 	public String toString() {
@@ -91,7 +84,4 @@ public class SolicitudEntity {
 				+ ", estado=" + estado + ", motivos=" + motivos + ", sintomas=" + sintomas + ", consultor=" + consultor
 				+ ", status=" + status + "]";
 	}
-=======
-	
->>>>>>> d4002d00b83821852f1bd4fd978e2818439b6262
 }

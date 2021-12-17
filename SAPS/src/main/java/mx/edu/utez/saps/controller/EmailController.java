@@ -19,11 +19,14 @@ public class EmailController {
 	
 	@Autowired
 	private EmailService emailService;
-	@Autowired ConsultaService consultaService;
+	
+	@Autowired 
+	ConsultaService consultaService;
 	
 	@PostMapping("/send")
 	public void send(@RequestBody Mail mail) {
 		ConsultaEntity consulta = consultaService.getConsulta(mail.getIdConsulta());
+		System.out.println(consulta.toString());
 		String fecha= consulta.getSolicitud().getFecha().toString();
 		
 		String content = "Se ha establecido el siguiente enlace con la llamada para la sesión de Apoyo Psicopedagógico\n"

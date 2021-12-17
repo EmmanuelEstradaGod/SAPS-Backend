@@ -42,5 +42,11 @@ public class ConsultaEntity {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+	@Override
+	public String toString() {
+		return "ConsultaEntity [idConsulta=" + idConsulta + ", consultor=" + consultor + ", solicitud=" + solicitud
+				+ ", estado=" + estado + ", getIdConsulta()=" + getIdConsulta() + ", getConsultor()=" + getConsultor()
+				+ ", getSolicitud()=" + getSolicitud() + ", getEstado()=" + getEstado() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 }

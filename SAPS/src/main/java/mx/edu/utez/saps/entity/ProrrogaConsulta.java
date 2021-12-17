@@ -8,7 +8,6 @@ public class ProrrogaConsulta {
 	private int idConsulta;
 	private LocalDateTime fecha;
 	
-	
 	//--------------------
 	
 	public int getIdConsulta() {
