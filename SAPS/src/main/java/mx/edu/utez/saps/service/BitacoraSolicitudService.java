@@ -25,8 +25,12 @@ public class BitacoraSolicitudService {
 		return bitacoraSolicitudRepository.findByIdBitacoraSolicitud(idBitacoraSolicitud);
 	}
 	
-	public boolean save(BitacoraSolicitudEntity bitacoraSolicitud) {
-		return bitacoraSolicitudRepository.existsById(bitacoraSolicitudRepository.save(bitacoraSolicitud).getIdBitacoraSolicitud());
+	public BitacoraSolicitudEntity save(BitacoraSolicitudEntity bitacoraSolicitud) {
+		if (bitacoraSolicitudRepository.existsById(bitacoraSolicitudRepository.save(bitacoraSolicitud).getIdBitacoraSolicitud())) {
+			return bitacoraSolicitudRepository.save(bitacoraSolicitud);
+		} else {
+			return null;
+		}
 	}
 	
 	public boolean delete(int idBitacoraSolicitud) {

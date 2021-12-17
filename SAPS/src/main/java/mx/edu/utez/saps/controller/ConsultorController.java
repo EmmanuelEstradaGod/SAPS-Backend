@@ -50,4 +50,9 @@ public class ConsultorController {
 	public ConsultorEntity getConsultor(@PathVariable("idConsultor") int idConsultor) {
 		return consultorService.getConsultor(idConsultor);
 	}
+	
+	@GetMapping("/getOne/usuario/{idUsuario}")
+	public ConsultorEntity getConsultorByIdUsuario(@PathVariable("idUsuario") int idUsuario) {
+		return consultorService.getConsultorByIdUsuario(idUsuario);
+	}
 }

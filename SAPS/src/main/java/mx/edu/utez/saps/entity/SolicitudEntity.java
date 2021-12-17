@@ -80,4 +80,11 @@ public class SolicitudEntity {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	@Override
+	public String toString() {
+		return "SolicitudEntity [idSolicitud=" + idSolicitud + ", fecha=" + fecha + ", solicitante=" + solicitante
+				+ ", estado=" + estado + ", motivos=" + motivos + ", sintomas=" + sintomas + ", consultor=" + consultor
+				+ ", status=" + status + "]";
+	}
 }
