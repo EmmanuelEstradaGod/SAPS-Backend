@@ -1,6 +1,7 @@
 package mx.edu.utez.saps.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ public class SolicitudEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSolicitud;
-	private Date fecha;
+	private LocalDateTime fecha;
 	@ManyToOne
 	private SolicitanteEntity solicitante;
 	private String estado;
@@ -40,10 +41,10 @@ public class SolicitudEntity {
 	public void setIdSolicitud(int idSolicitud) {
 		this.idSolicitud = idSolicitud;
 	}
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 	public SolicitanteEntity getSolicitante() {
@@ -70,5 +71,27 @@ public class SolicitudEntity {
 	public void setSintomas(List<SintomaEntity> sintomas) {
 		this.sintomas = sintomas;
 	}
+	public ConsultorEntity getConsultor() {
+		return consultor;
+	}
+	public void setConsultor(ConsultorEntity consultor) {
+		this.consultor = consultor;
+	}
+<<<<<<< HEAD
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	
+	@Override
+	public String toString() {
+		return "SolicitudEntity [idSolicitud=" + idSolicitud + ", fecha=" + fecha + ", solicitante=" + solicitante
+				+ ", estado=" + estado + ", motivos=" + motivos + ", sintomas=" + sintomas + ", consultor=" + consultor
+				+ ", status=" + status + "]";
+	}
+=======
+	
+>>>>>>> d4002d00b83821852f1bd4fd978e2818439b6262
 }

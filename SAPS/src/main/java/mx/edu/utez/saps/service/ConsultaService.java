@@ -25,11 +25,15 @@ public class ConsultaService {
 		return consultaRepository.findByIdConsulta(idConsulta);
 	}
 	
-	public boolean saveConsulta(ConsultaEntity consulta) {
-		return consultaRepository.existsById(consultaRepository.save(consulta).getIdConsulta());
+	public ConsultaEntity saveConsulta(ConsultaEntity consulta) {
+		return consultaRepository.save(consulta);
 	}
 	
 	public List<ConsultaEntity> getConsultasByUsuario(int idUsuario){
 		return consultaRepository.findAllBySolicitud_Solicitante_Usuario_IdUsuario(idUsuario);
+	}
+	
+	public List<ConsultaEntity> getConsultasByConsultor(int idConsultor){
+		return consultaRepository.findAllByConsultor_IdConsultor(idConsultor);
 	}
 }

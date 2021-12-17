@@ -35,4 +35,8 @@ public class ConsultorService {
 	public ConsultorEntity getConsultor(int idConsultor) {
 		return consultorRepository.findByIdConsultor(idConsultor);
 	}
+	
+	public ConsultorEntity getConsultorByIdUsuario(int idUsuario) {
+		return consultorRepository.findByUsuario_IdUsuario(idUsuario);
+	}
 }
