@@ -40,8 +40,12 @@ public class SolicitudController {
 	}
 	
 	@PostMapping("/save")
+<<<<<<< HEAD
 	public int saveSolicitud(@RequestBody SolicitudEntity solicitud) {
 		solicitud.setStatus(true);
+=======
+	public boolean saveSolicitud(@RequestBody SolicitudEntity solicitud) {
+>>>>>>> d4002d00b83821852f1bd4fd978e2818439b6262
 		BitacoraSolicitudEntity bitacoraSolicitud = new BitacoraSolicitudEntity();
 		bitacoraSolicitud.setStatus(true);
 		bitacoraSolicitud.setSolicitud(solicitudService.saveSolicitud(solicitud));

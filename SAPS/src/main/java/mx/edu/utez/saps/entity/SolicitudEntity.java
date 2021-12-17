@@ -4,15 +4,12 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class SolicitudEntity {
@@ -30,10 +27,16 @@ public class SolicitudEntity {
 	@ManyToOne
 	private ConsultorEntity consultor;
 	private boolean status;
-	
 	//---------------
+	
 	public int getIdSolicitud() {
 		return idSolicitud;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public void setIdSolicitud(int idSolicitud) {
 		this.idSolicitud = idSolicitud;
@@ -74,6 +77,7 @@ public class SolicitudEntity {
 	public void setConsultor(ConsultorEntity consultor) {
 		this.consultor = consultor;
 	}
+<<<<<<< HEAD
 	public boolean isStatus() {
 		return status;
 	}
@@ -87,4 +91,7 @@ public class SolicitudEntity {
 				+ ", estado=" + estado + ", motivos=" + motivos + ", sintomas=" + sintomas + ", consultor=" + consultor
 				+ ", status=" + status + "]";
 	}
+=======
+	
+>>>>>>> d4002d00b83821852f1bd4fd978e2818439b6262
 }
